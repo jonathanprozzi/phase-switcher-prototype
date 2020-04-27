@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import PhaseOne from "./components/PhaseOne";
+import PhaseTwo from "./components/PhaseTwo";
 
 function App() {
+  const [phase, setPhase] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Phase Switching</h1>
+      <p>Current phase: {phase}</p>
+      <button onClick={() => setPhase(phase + 1)}>Move forward</button>
+
+      <div>{phase === 1 && <PhaseOne />}</div>
+      <div>{phase === 2 && <PhaseTwo />}</div>
     </div>
   );
 }
